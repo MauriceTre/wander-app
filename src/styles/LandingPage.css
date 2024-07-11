@@ -1,10 +1,21 @@
 .landing-page {
-    background-image: url('/panorama.png');
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('../../public/panorama.png');
+  background-size: cover;
+}
+
+.landing-page h1 {
+  color: white;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.landing-page button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}

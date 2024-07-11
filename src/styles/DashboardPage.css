@@ -1,0 +1,105 @@
+/* Basic styles for the entire dashboard page */
+.dashboard-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f7fa;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .dashboard-page h1, .dashboard-page h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-page p {
+    font-size: 18px;
+    color: #34495e;
+  }
+  
+  .dashboard-page ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .dashboard-page ul li {
+    background-color: #fff;
+    border: 1px solid #ecf0f1;
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+  
+  .dashboard-page ul li:hover {
+    transform: translateY(-3px);
+  }
+  
+  .dashboard-page button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dashboard-page button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* User info section */
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-info p {
+    margin: 5px 0;
+  }
+  
+  .user-info button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .user-info button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Total distance section */
+  .total-distance {
+    font-size: 20px;
+    color: #2ecc71;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    .dashboard-page ul {
+      width: 100%;
+    }
+  
+    .dashboard-page button, .user-info button {
+      width: 100%;
+      padding: 12px 0;
+    }
+  }
+  

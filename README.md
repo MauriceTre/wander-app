@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Wander-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Die Wander-App ist eine webbasierte Anwendung, die es Benutzern ermöglicht, weltweit Wanderwege anzuzeigen und ihre eigenen Routen zu planen. Die App integriert die Google Maps API für die Kartendarstellung und bietet Funktionen wie Social Login und die Speicherung von Wanderhistorien in einer MySQL-Datenbank.
 
-## Available Scripts
+## Funktionen
 
-In the project directory, you can run:
+- **Social Login:** Benutzer können sich mit ihren Social Media Konten oder per E-Mail und Passwort anmelden.
+- **Wanderwege anzeigen:** Anzeige von Wanderwegen weltweit mithilfe der Google Maps API.
+- **Routenplanung:** Benutzer können neue Routen erstellen und deren Kilometerstand speichern.
+- **Wanderhistorie:** Speichert und aggregiert die Kilometer aller gelaufenen Routen im Benutzer-Dashboard.
 
-### `npm start`
+## Technologien
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend:** React.js mit TypeScript für eine robuste und typsichere Entwicklung.
+- **Backend:** MySQL-Datenbank für die Speicherung von Benutzerinformationen und Wanderhistorien.
+- **Firebase:** Integration für die Authentifizierung und Social Login.
+- **Styling:** CSS für das Styling der Benutzeroberfläche.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Ordnerstruktur
 
-### `npm test`
+wander-app/
+├── public/ # Öffentliche Ressourcen und index.html
+├── src/ # Quellcode der React-Anwendung
+│ ├── components/ # Wiederverwendbare React-Komponenten
+│ ├── pages/ # Hauptseiten der Anwendung (Dashboard, LandingPage, MapPage)
+│ ├── styles/ # CSS-Dateien für das Styling der Anwendung
+│ ├── firebase.ts # Firebase-Konfigurationsdatei (ignoriert in .gitignore)
+│ ├── App.tsx # Hauptkomponente, Routen-Definitionen
+│ ├── index.tsx # Einstiegspunkt der React-Anwendung
+│ └── ... # Weitere Hilfsdateien und Konfigurationen
+├── .gitignore # Liste von Dateien und Ordnern, die von Git ignoriert werden sollen
+├── README.md # Diese Datei, Erklärung des Projekts
+└── package.json # Abhängigkeiten und Skripte für das Projekt
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Installation und Start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone das Repository:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/dein-benutzername/wander-app.git
+   cd wander-app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Installiere die Abhängigkeiten:**
+   npm install
 
-### `npm run eject`
+3. **Firebase-Konfiguration:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Erstelle eine Firebase-Projekt in der Firebase Console.
+Füge deine Firebase-Konfigurationsdaten in src/firebase.ts ein (die Datei ist in .gitignore ausgeschlossen).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Starte die Anwendung:**
+   npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Öffne deinen Browser und gehe zu http://localhost:3000, um die Wander-App zu sehen.

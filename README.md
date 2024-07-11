@@ -38,7 +38,7 @@ wander-app/
 1. **Clone das Repository:**
 
    ```bash
-   git clone https://github.com/dein-benutzername/wander-app.git
+   git clone https://github.com/MauriceTre/wander-app.git
    cd wander-app
 
 2. **Installiere die Abhängigkeiten:**

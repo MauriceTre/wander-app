@@ -1,17 +1,14 @@
 import React from 'react';
-import MapPage from '../components/MapPage';
 import Navbar from '../components/Navbar';
-import '../styles/MapPage.css';
 
-const MapPageWrapper: React.FC = () => {
+const MapPage: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <MapPage />
+      <h1>Map Page</h1>
     </div>
   );
 };
 
-export default MapPageWrapper;
+export default MapPage;
 
-export {};

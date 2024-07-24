@@ -1,24 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import DashboardPage from './pages/DashboardPage';
 import MapPage from './pages/MapPage';
-import Auth from "./components/Auth";
-function App() {
+
+const App: React.FC = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" Component={LandingPage} />
-        <Route path="/dashboard" Component={DashboardPage} />
-        <Route path="/map" Component={MapPage} />
-        <Route path="/auth" Component={Auth} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/map" element={<MapPage />} />
+    </Routes>
   );
-}
+};
 
 export default App;
-
-
 
 

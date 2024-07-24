@@ -1,20 +1,18 @@
 import { DataTypes, Model, Optional } from 'sequelize';
-import db from '../config/db';
+import sequelize from '../config/db';
 
 interface UserAttributes {
   id: number;
   email: string;
   password: string;
-  totalDistance: number;
 }
 
-interface UserCreationAttributes extends Optional<UserAttributes, 'id' | 'totalDistance'> {}
+interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
 class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
   public id!: number;
   public email!: string;
   public password!: string;
-  public totalDistance!: number;
 }
 
 User.init(
@@ -33,16 +31,12 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    totalDistance: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-      defaultValue: 0,
-    },
   },
   {
-    sequelize: db,
+    sequelize,
     tableName: 'users',
   }
 );
 
 export default User;
+

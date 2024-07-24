@@ -1,17 +1,15 @@
 import React from 'react';
-import Dashboard from '../components/Dashboard';
 import Navbar from '../components/Navbar';
 import '../styles/DashboardPage.css';
 
 const DashboardPage: React.FC = () => {
   return (
-    <div>
+    <div className="dashboard-page">
       <Navbar />
-      <Dashboard />
+      <h1>Dashboard</h1>
+      <p>Welcome to your dashboard.</p>
     </div>
   );
 };
 
 export default DashboardPage;
-
-export {};

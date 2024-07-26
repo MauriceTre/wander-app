@@ -2,7 +2,7 @@
   "name": "wander-app",
   "version": "1.0.0",
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "ts-node src/index.ts",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "tsc",
     "lint": "eslint src/**/*.ts",

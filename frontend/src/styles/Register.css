@@ -1,0 +1,33 @@
+.register-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .register-container h2 {
+    text-align: center;
+  }
+  
+  .register-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .register-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .register-container input {
+    width: 100%;
+    padding: 8px;
+  }
+  
+  .register-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  

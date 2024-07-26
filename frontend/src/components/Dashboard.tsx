@@ -1,17 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-interface DashboardProps {
-  username: string;
-}
+const DashboardPage: React.FC = () => {
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-const Dashboard: React.FC<DashboardProps> = ({ username }) => {
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    navigate('/');
+  };
+
   return (
-    <div>
-      <h2>Welcome, {username}</h2>
-      <p>This is your personalized dashboard.</p>
+    <div className="dashboard-container">
+      <h1>Welcome, {user.username || 'User'}!</h1>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardPage;
 

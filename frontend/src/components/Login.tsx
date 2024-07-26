@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../styles/Login.css';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -9,19 +10,13 @@ const Login: React.FC = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       const response = await axios.post('http://localhost:5000/api/auth/login', {
         email,
         password,
       });
-
-      if (response.status === 200) {
-        // Save user to localStorage
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        // Redirect to dashboard
-        navigate('/dashboard');
-      }
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      navigate('/dashboard');
     } catch (error) {
       console.error('Login error', error);
     }
@@ -56,4 +51,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
 

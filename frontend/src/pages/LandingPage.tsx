@@ -1,34 +1,47 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { login, register } from '../auth';
 import '../styles/LandingPage.css';
 
 const LandingPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isRegister, setIsRegister] = useState(false);
+  const [username, setUsername] = useState('');
+  const [isRegistering, setIsRegistering] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    try {
-      if (isRegister) {
-        await register(email, password);
-        alert('Registration successful');
-      } else {
-        const response = await login(email, password);
+  const handleAuth = async () => {
+    if (isRegistering) {
+      try {
+        const response = await axios.post('http://localhost:4000/api/auth/register', { email, password, username });
         localStorage.setItem('token', response.data.token);
         navigate('/dashboard');
+      } catch (error) {
+        console.error('Registration error:', error);
       }
-    } catch (error) {
-      alert('Error occurred');
+    } else {
+      try {
+        const response = await axios.post('http://localhost:4000/api/auth/login', { email, password });
+        localStorage.setItem('token', response.data.token);
+        navigate('/dashboard');
+      } catch (error) {
+        console.error('Login error:', error);
+      }
     }
   };
 
   return (
     <div className="landing-page">
-      <h1>Welcome to Wander App</h1>
-      <form onSubmit={handleSubmit}>
+      <div className="auth-container">
+        <h2>{isRegistering ? 'Register' : 'Login'}</h2>
+        {isRegistering && (
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        )}
         <input
           type="email"
           placeholder="Email"
@@ -41,14 +54,17 @@ const LandingPage: React.FC = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">{isRegister ? 'Register' : 'Login'}</button>
-      </form>
-      <button onClick={() => setIsRegister(!isRegister)}>
-        {isRegister ? 'Switch to Login' : 'Switch to Register'}
-      </button>
+        <button onClick={handleAuth}>
+          {isRegistering ? 'Register' : 'Login'}
+        </button>
+        <button onClick={() => setIsRegistering(!isRegistering)}>
+          {isRegistering ? 'Already have an account? Login' : "Don't have an account? Register"}
+        </button>
+      </div>
     </div>
   );
 };
 
 export default LandingPage;
+
 

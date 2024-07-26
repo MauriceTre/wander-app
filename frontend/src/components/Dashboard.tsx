@@ -1,20 +1,17 @@
 import React from 'react';
-import Navbar from './Navbar';
-import { getCurrentUser } from '../auth';
-import '../styles/DashboardPage.css';
 
-const Dashboard: React.FC = () => {
-  const user = getCurrentUser();
+interface DashboardProps {
+  username: string;
+}
 
+const Dashboard: React.FC<DashboardProps> = ({ username }) => {
   return (
-    <div className="dashboard">
-      <Navbar />
-      <div className="content">
-        <h1>Welcome, {user ? user : 'Guest'}!</h1>
-        <p>This is your dashboard.</p>
-      </div>
+    <div>
+      <h2>Welcome, {username}</h2>
+      <p>This is your personalized dashboard.</p>
     </div>
   );
 };
 
 export default Dashboard;
+
